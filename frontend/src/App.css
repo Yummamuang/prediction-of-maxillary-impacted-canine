@@ -1,6 +1,15 @@
 /* Prompt font */
 @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
+/* root */
+:root {
+    --dark: #111624;
+    --white: #ffffff;
+    --orange: #FE602F;
+    --green: #A2BF00;
+    --green-light: #E3F4BC;
+}
+
 /* Reset */
 * {
     margin: 0;
