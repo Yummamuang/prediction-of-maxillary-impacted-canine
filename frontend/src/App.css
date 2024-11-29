@@ -1,0 +1,27 @@
+/* Atma font */
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@400;500;600;700&display=swap');
+
+.atma-regular {
+    font-family: "Atma", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.atma-medium {
+    font-family: "Atma", system-ui;
+    font-weight: 500;
+    font-style: normal;
+    }
+
+.atma-semibold {
+    font-family: "Atma", system-ui;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.atma-bold {
+    font-family: "Atma", system-ui;
+    font-weight: 700;
+    font-style: normal;
+}
+  
