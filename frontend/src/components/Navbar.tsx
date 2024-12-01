@@ -8,6 +8,7 @@ function Navbar() {
     
     return (
         <div id='navbar' className='bg-white p-3 flex justify-between' >
+            
             {/* logo + text */}
             <div className="flex items-center logo">
                 <div style={{ width: '2.6rem' , height: '2.6rem'}}>
@@ -15,6 +16,7 @@ function Navbar() {
                 </div>
                 <div className='text-2xl atma-semibold'>EduSign</div>
             </div>
+
             {/* Hamberger Bars */}
             <div className='flex items-center'>
                 <svg id='hamberger-bars' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#111624" className="w-8 h-8">
