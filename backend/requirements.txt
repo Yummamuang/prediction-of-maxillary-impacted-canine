@@ -1,0 +1,23 @@
+# Web Frameworks and Utilities
+Flask==3.10
+Flask-Cors==5.0.0
+python-dotenv==1.0.1
+
+# Deep Learning Libraries (ใช้ PyTorch เป็นตัวอย่าง)
+torch==
+torchvision==
+
+# YOLO (Ultralytics สำหรับการตรวจจับวัตถุ)
+ultralytics==
+
+# Image Processing
+opencv-python==
+Pillow==
+numpy==
+
+# Machine Learning Tools
+scikit-learn==
+
+# Testing and Deployment
+pytest==
+gunicorn==
