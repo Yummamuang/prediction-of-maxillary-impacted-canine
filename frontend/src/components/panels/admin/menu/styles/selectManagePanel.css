@@ -1,0 +1,18 @@
+/* Import tailwindcss */
+@import "tailwindcss";
+@import "tailwindcss/utilities";
+
+@layer utilities {
+    .menu-selection {
+        @apply px-10 py-2 rounded-lg;
+        transition: 0.2s var(--default-transition);
+    }
+
+    .menu-selection:hover {
+        background-color: var(--background-color);
+    }
+
+    .submenu-container > * {
+        transition: 0.2s var(--default-transition);
+    }
+}

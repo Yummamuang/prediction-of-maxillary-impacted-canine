@@ -1,0 +1,95 @@
+/* Import google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* Import tailwindcss */
+@import "tailwindcss";
+@import "tailwindcss/utilities";
+
+/* Custom utilities */
+@layer utilities {
+    :root {
+        /* Colors */
+        --blue-color: #0da9e9;
+        --background-color: #f2f9ff;
+        --text-color: #1c325b;
+        /* Transition */
+        --default-transition: cubic-bezier(0.72, -0.01, 0.6, 1);
+        --fast-in: cubic-bezier(0.82, 0, 0.73, 1);
+    }
+
+    .btn-primary {
+        @apply w-full border-2 rounded-lg bg-white p-4 cursor-pointer font-medium;
+        border-color: var(--blue-color);
+        font-family: "Poppins", sans-serif;
+        transition: 0.1s var(--default-transition);
+    }
+
+    .btn-secondary {
+        @apply w-full border-2 rounded-lg bg-white p-4 cursor-pointer font-medium border-red-500 text-red-500;
+        font-family: "Poppins", sans-serif;
+        transition: 0.1s var(--default-transition);
+    }
+
+    .input-primary {
+        @apply border-2 rounded-lg bg-white py-1 px-3 flex items-center;
+        border-color: var(--blue-color);
+    }
+
+    .btn-primary:hover {
+        background-color: var(--blue-color);
+        color: white;
+    }
+
+    .btn-secondary:hover {
+        @apply bg-red-500;
+        color: white;
+    }
+
+    .hover-text-blue {
+        transition: 0.2s var(--default-transition);
+    }
+
+    .hover-text-blue:hover > * {
+        color: var(--blue-color);
+    }
+
+    .border-blue {
+        border-color: var(--blue-color);
+    }
+
+    .bg-blue {
+        background-color: var(--blue-color);
+    }
+
+    .bg-blue-light {
+        background-color: var(--background-color);
+    }
+
+    .text-blue {
+        color: var(--blue-color);
+    }
+
+    .poppins {
+        font-family: "Poppins", sans-serif;
+    }
+
+    .w-auto {
+        width: auto !important;
+    }
+}
+
+.heading-text {
+    color: var(--text-color);
+}
+
+.border-blue {
+    border-color: var(--blue-color);
+}
+
+body {
+    background: var(--background-color);
+}
+
+i {
+    transition: 0.3s var(--default-transition);
+}

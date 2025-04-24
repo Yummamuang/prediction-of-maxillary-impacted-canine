@@ -1,0 +1,29 @@
+{
+  "categories": [
+    {
+      "id": 0,
+      "name": "Central incisor"
+    },
+    {
+      "id": 1,
+      "name": "First premolar"
+    },
+    {
+      "id": 2,
+      "name": "Impacted canine"
+    },
+    {
+      "id": 3,
+      "name": "Lateral incisor"
+    },
+    {
+      "id": 4,
+      "name": "Second premolar"
+    }
+  ],
+  "info": {
+    "year": 2025,
+    "version": "1.0",
+    "contributor": "Label Studio"
+  }
+}

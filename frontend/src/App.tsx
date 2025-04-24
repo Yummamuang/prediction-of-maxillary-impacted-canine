@@ -1,35 +1,91 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+// Import Router
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
+// Import Auth Utils
+import { authUtils } from "./utils/auth";
+
+// Import Context
+import { LoadingProvider } from "./components/contexts/loadingContext";
+import LoadingIndicator from "./components/indicators/loadingIndicator";
+
+// Import Components
+import {
+  Login,
+  PublicRoute,
+  ProtectedRoute,
+  UserPanel,
+  NotFound,
+  RoleBasedRoute,
+  AdminPanel,
+  PredictionPanel,
+} from "./components";
+
+const App: React.FC = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <LoadingProvider>
+      <Router>
+        <LoadingIndicator />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <RoleBasedRoute allowedRoles={["admin"]} redirectTo="/404">
+                  <AdminPanel />
+                </RoleBasedRoute>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <RoleBasedRoute allowedRoles={["admin", "user"]} redirectTo="/">
+                  <UserPanel />
+                </RoleBasedRoute>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/prediction/:detectionId"
+            element={
+              <ProtectedRoute>
+                <RoleBasedRoute allowedRoles={["admin", "user"]} redirectTo="/">
+                  <PredictionPanel />
+                </RoleBasedRoute>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              authUtils.isAuthenticated() ? (
+                <Navigate to="/dashboard" replace />
+              ) : (
+                <Navigate to="/login" replace />
+              )
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </LoadingProvider>
+  );
+};
 
-export default App
+export default App;
